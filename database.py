@@ -19,7 +19,13 @@ class Database:
         VALUES %s
         """
 
-        psycopg2.extras.execute_values(self.cursor, queryText, tuple(data, ))
+        psycopg2.extras.execute_values(
+            self.cursor,
+            queryText,
+            tuple(
+                data,
+            ),
+        )
         self.connection.commit()
 
     def close_connection(self) -> None:
